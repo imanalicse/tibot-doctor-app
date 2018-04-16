@@ -7,12 +7,25 @@
     <title>Tibot Doctor App</title>
 
     <!-- Bootstrap -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
-        <h1 class="page-header">Hello, world!</h1>
+         <ul class="list-inline-item">
+            <li>My Account</li>
+            <li>Logout</li>
+        </ul>
+        <div class="case-id-container">
+
+        </div>
+
+        <div class="form-group">
+            <label for="caseId">Case Id</label>
+            <input type="text" class="form-control" id="caseId" placeholder="1234">            
+        </div>
     </div>
+
+   
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
