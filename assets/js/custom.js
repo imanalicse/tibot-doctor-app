@@ -27,7 +27,7 @@ jQuery(document).ready(function ($) {
             .then(function (data) {
                 console.log("second then", data);
             }).catch(function (err) {
-            console.log(err)
+                console.log(err)
         });
 
     }
