@@ -1,0 +1,25 @@
+{
+  "login": {
+    "username": "admin",
+    "password": "1qaz2wsx"
+  },
+  "caseDetail": {
+    "case_id": "40599w294jdby9rlv",
+    "fever": "Low",
+    "itch": "1 to 2",
+    "duration": "3-4 days",
+    "burn": "Slight",
+    "oozing": "A Little",
+    "pain": "Slight",
+    "patient_details": "23 years male",
+    "trigger_1": "Food",
+    "trigger_2": "Weather",
+    "location": "Right elbow and less degree to left knees",
+    "notes": "Appear similar rashes three years ago",
+    "images": [
+      "https://admin.tibot.ai:5000/image/926efbfd0fbd3dbd13cfefdf0e8ad4da.jpg",
+      "https://admin.tibot.ai:5000/image/49aa302eb814f8aa286b9b789b4cbf1c.jpg",
+      "https://admin.tibot.ai:5000/image/b10733c587367ff639e12900f87a8ab2.jpg"
+    ]
+  }
+}

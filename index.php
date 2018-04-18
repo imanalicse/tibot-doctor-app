@@ -1,6 +1,6 @@
 <?php require 'includes/header.php'; ?>
 
-    <div class="container">
+    <div class="container home-page">
         <div class="row">
             <div class="col-md-3">Case Id</div>
             <div class="col-md-3">

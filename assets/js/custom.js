@@ -1,17 +1,34 @@
 jQuery(document).ready(function ($) {
+
+    var pageBody = $("body");
+
+    //const http = 'https://admin.tibot.ai/';
+    const http = 'http://localhost:3000/';
+
     var loginForm = $("#login-form");
     loginForm.submit(function (ev) {
         ev.preventDefault();
         var loginFormData = loginForm.serializeFormObject();
-        console.log( loginFormData );
-    });
-});
+        //const loginUrl = http + "registeredDoctor/login";
+        const loginUrl = http + "login";
 
-$.fn.serializeFormObject = function () {
-    var formData = $(this).serializeArray();
-    var result = {};
-    $.each(formData, function (index, value) {
-        result[value.name] = value.value;
+        fetchApiService.post(loginUrl, loginFormData)
+            .then(function (resp) {
+                console.log('resp => ', resp);
+            }).catch(function (err) {
+            console.log(err);
+        });
     });
-    return result;
-};
+
+
+    if (pageBody.find('.home-page')) {
+        const caseDetailUrl = http + "caseDetail";
+        fetchApiService.get(caseDetailUrl)
+            .then(function (data) {
+                console.log("second then", data);
+            }).catch(function (err) {
+            console.log(err)
+        });
+
+    }
+});
