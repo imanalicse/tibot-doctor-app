@@ -1,3 +1,9 @@
 .main-nav li{
     float: left
 }
+.banner-container{
+    padding: 15px 0;
+}
+.banner-container img{
+    max-height: 200px;
+}

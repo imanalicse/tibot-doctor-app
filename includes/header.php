@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
     <title>Tibot Doctor App</title>
 </head>
 <body>
@@ -15,6 +16,9 @@
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link active" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="case-list.php">All cases</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="my-account.php">My Account</a>
