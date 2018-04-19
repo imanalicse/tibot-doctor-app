@@ -7,3 +7,13 @@
 .banner-container img{
     max-height: 200px;
 }
+.label-area {
+    float: left;
+}
+.field-area{
+    float: right;
+    width: 50%;
+}
+.full-width {
+    width: 100%;
+}

@@ -28,13 +28,13 @@ jQuery(document).ready(function ($) {
     });
 
 
-    if (pageBody.find('.home-page').length > 0) {
-        const caseDetailUrl = http + "caseDetail";
-        fetchApiService.get(caseDetailUrl)
-            .then(function (data) {
-                console.log("second then", data);
-            }).catch(function (err) {
-                console.log(err)
-        });
-    }
+    // if (pageBody.find('.home-page').length > 0) {
+    //     const caseDetailUrl = http + "caseDetail";
+    //     fetchApiService.get(caseDetailUrl)
+    //         .then(function (data) {
+    //             console.log("second then", data);
+    //         }).catch(function (err) {
+    //             console.log(err)
+    //     });
+    // }
 });

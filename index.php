@@ -13,21 +13,71 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3">Patient's details</div>
-            <div class="col-md-3">
-                <input type="text" class="form-control patient-detail">
+            <div class="form-group col-md-6">
+                <div class="label-area">Patient's details</div>
+                <div class="field-area">
+                    <input type="text" class="form-control full-width">
+                </div>
             </div>
-            <div class="col-md-3">Fever</div>
-            <div class="col-md-3">
-                <input type="text" class="form-control fever">
+            <div class="form-group col-md-6">
+                <div class="label-area">Fever</div>
+                <div class="field-area">
+                    <input type="text" class="form-control full-width">
+                </div>
             </div>
-            <div class="col-md-3">Itch</div>
-            <div class="col-md-3">
-                <input type="text" class="form-control itch">
+            <div class="form-group col-md-6">
+                <div class="label-area">Itch</div>
+                <div class="field-area">
+                    <input type="text" class="form-control full-width fever">
+                </div>
             </div>
-            <div class="col-md-3">Oozing</div>
-            <div class="col-md-3">
-                <input type="text" class="form-control oozing">
+            <div class="form-group col-md-6">
+                <div class="label-area">Oozing</div>
+                <div class="field-area">
+                    <input type="text" class="form-control full-width fever">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="label-area">Duration</div>
+                <div class="field-area">
+                    <input type="text" class="form-control full-width fever">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="label-area">Burning</div>
+                <div class="field-area">
+                    <input type="text" class="form-control full-width fever">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="label-area">Location</div>
+                <div class="field-area">
+                    <input type="text" class="form-control full-width fever">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="label-area">Trigger 1</div>
+                <div class="field-area">
+                    <input type="text" class="form-control full-width fever">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="label-area">Pain</div>
+                <div class="field-area">
+                    <input type="text" class="form-control full-width fever">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="label-area">Trigger 2</div>
+                <div class="field-area">
+                    <input type="text" class="form-control full-width fever">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3 col-sm-3">Other Notes</div>
+            <div class="form-group col-md-9 col-sm-9">
+                <input type="text" class="form-control full-width">
             </div>
         </div>
     </div>
