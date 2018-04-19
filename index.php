@@ -80,6 +80,53 @@
                 <input type="text" class="form-control full-width">
             </div>
         </div>
+
+        <form id="next-case">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Main Condition</label>
+                <div class="col-sm-9">
+                    <select name="main_condition" class="form-control">
+                        <option selected>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Secondary Condition</label>
+                <div class="col-sm-9">
+                    <select name="secondary_condition" class="form-control">
+                        <option selected>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Severity</label>
+                <div class="col-sm-9">
+                    <select name="secondary_condition" class="form-control">
+                        <option selected>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Suggested Action</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control full-width">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-0 col-sm-3 col-form-label"></label>
+                <div class="col-sm-12 col-md-9">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-primary">Skip</button>
+                </div>
+            </div>
+        </form>
     </div>
+
 
 <?php require 'includes/footer.php'; ?>
