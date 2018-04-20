@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require 'includes/header.php';
 
 function postRequest($url, $data, $refer = "", $timeout = 10, $header = [])

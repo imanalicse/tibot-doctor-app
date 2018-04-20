@@ -11,7 +11,13 @@
 </head>
 <body>
 
-<?php require "functions.php"; ?>
+<?php
+session_start();
+require "functions.php";
+echo "<pre>";
+print_r(isAuthenticated());
+echo "</pre>";
+?>
 
 <div class="container">
     <div class="header">
@@ -25,12 +31,15 @@
             <li class="nav-item">
                 <a class="nav-link" href="my-account.php">My Account</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="login.php">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="logout.php">Logout</a>
-            </li>
+            <?php if (!isAuthenticated()) : ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php">Login</a>
+                </li>
+            <?php else: ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
+                </li>
+            <?php endif; ?>
         </ul>
     </div>
 </div>
