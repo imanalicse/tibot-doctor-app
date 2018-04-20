@@ -1,45 +1,6 @@
 <?php
-
 require 'includes/header.php';
 
-function postRequest($url, $data, $refer = "", $timeout = 10, $header = [])
-{
-    $curlObj = curl_init();
-    $ssl = stripos($url,'https://') === 0 ? true : false;
-    $options = [
-        CURLOPT_URL => $url,
-        CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_POST => 1,
-        CURLOPT_POSTFIELDS => $data,
-        CURLOPT_FOLLOWLOCATION => 1,
-        CURLOPT_AUTOREFERER => 1,
-        CURLOPT_USERAGENT => 'Mozilla/5.0 (compatible; MSIE 5.01; Windows NT 5.0)',
-        CURLOPT_TIMEOUT => $timeout,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_0,
-        CURLOPT_HTTPHEADER => ['Expect:'],
-        CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
-        CURLOPT_REFERER => $refer
-    ];
-    if (!empty($header)) {
-        $options[CURLOPT_HTTPHEADER] = $header;
-    }
-    if ($refer) {
-        $options[CURLOPT_REFERER] = $refer;
-    }
-    if ($ssl) {
-        //support https
-        $options[CURLOPT_SSL_VERIFYHOST] = false;
-        $options[CURLOPT_SSL_VERIFYPEER] = false;
-    }
-    curl_setopt_array($curlObj, $options);
-    $returnData = curl_exec($curlObj);
-    if (curl_errno($curlObj)) {
-        //error message
-        $returnData = curl_error($curlObj);
-    }
-    curl_close($curlObj);
-    return $returnData;
-}
 
 $postData = array(
         "email"=> "imanali.cse@gmail.com",
@@ -49,12 +10,13 @@ $postData = array(
 $data = json_encode($postData);
 
 $url =  "https://admin.tibot.ai/registeredDoctor/login";
-//$postRes = postRequest($url, $postData);
-//echo '<pre>';
-//print_r($postRes);
-//echo '</pre>';
 
-if(!isset($_SESSION['token']) || empty($_SESSION['token'])) {
+if( isset($_POST['username']) && !empty($_POST['username'])
+    && isset($_POST['username']) && !empty($_POST['password'])
+) {
+    $user_name = $_POST["username"];
+    $password = $_POST["password"];
+
     $ch = curl_init($url);
 # Setup request to send json via POST.
 //$payload = json_encode( array( "customer"=> $data ) );
@@ -68,26 +30,21 @@ if(!isset($_SESSION['token']) || empty($_SESSION['token'])) {
     $result = curl_exec($ch);
     curl_close($ch);
 
-    echo "curl called";
+    if(!empty($result)) {
+        $resp = json_decode($result);
+        if($resp->message == 'Auth successful') {
+            $_SESSION['email'] = "imanali.cse@gmail.com";
+            $_SESSION['token'] = $resp->token;
+        }
+    }
 }
 
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
-
-if(!empty($result)) {
-    $resp = json_decode($result);
-    if($resp->message == 'Auth successful') {
-        $_SESSION['email'] = "imanali.cse@gmail.com";
-        $_SESSION['token'] = $resp->token;
-     }
-}
 
 ?>
 
 <div class="container">
     <h5>Please enter your Doctor login</h5>
-    <form id="login-form">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id="login-form" method="post">
         <div class="form-group">
             <input type="text" name="username" class="form-control" placeholder="User Name">
         </div>
