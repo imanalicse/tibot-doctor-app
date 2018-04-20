@@ -6,3 +6,9 @@ function isAuthenticated () {
     }
     return $isAuthenticated;
 }
+function protectPage() {
+    if(!isAuthenticated()){
+        ob_start();
+        header("location: login.php");
+    }
+}

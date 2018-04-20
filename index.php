@@ -1,4 +1,7 @@
-<?php require 'includes/header.php'; ?>
+<?php
+require 'includes/header.php';
+protectPage();
+?>
 
     <div class="container home-page">
         <div class="row">

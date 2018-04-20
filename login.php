@@ -1,22 +1,19 @@
 <?php
 require 'includes/header.php';
 
-
-$postData = array(
-        "email"=> "imanali.cse@gmail.com",
-        "password"=> "CodeFest%6"
-);
-
-$data = json_encode($postData);
-
-$url =  "https://admin.tibot.ai/registeredDoctor/login";
-
-if( isset($_POST['username']) && !empty($_POST['username'])
+if (isset($_POST['username']) && !empty($_POST['username'])
     && isset($_POST['username']) && !empty($_POST['password'])
 ) {
     $user_name = $_POST["username"];
     $password = $_POST["password"];
 
+    $postData = array(
+        "email" => $user_name,
+        "password" => $password
+    );
+    $data = json_encode($postData);
+
+    $url = "https://admin.tibot.ai/registeredDoctor/login";
     $ch = curl_init($url);
 # Setup request to send json via POST.
 //$payload = json_encode( array( "customer"=> $data ) );
@@ -30,19 +27,22 @@ if( isset($_POST['username']) && !empty($_POST['username'])
     $result = curl_exec($ch);
     curl_close($ch);
 
-    if(!empty($result)) {
+    if (!empty($result)) {
         $resp = json_decode($result);
-        if($resp->message == 'Auth successful') {
-            $_SESSION['email'] = "imanali.cse@gmail.com";
+        if ($resp->message == 'Auth successful') {
+            $_SESSION['email'] = $user_name;
             $_SESSION['token'] = $resp->token;
+            ob_start();
+            header('Location: index.php');
+        } else {
+            echo $resp->message;
         }
     }
 }
 
-
 ?>
 
-<div class="container">
+<div class="container justify-content-center login-container">
     <h5>Please enter your Doctor login</h5>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id="login-form" method="post">
         <div class="form-group">
@@ -51,12 +51,13 @@ if( isset($_POST['username']) && !empty($_POST['username'])
         <div class="form-group">
             <input type="password" name="password" class="form-control" placeholder="Password">
         </div>
-        <div class="form-group">
-            Captcha here
+        <div class="form-group row justify-content-center">
+            <button type="submit" class="btn btn-primary button-padding">Login</button>
         </div>
-        <input type="submit" class="btn btn-primary" value="Login">
     </form>
-    <a href="forget-password.php">Forget Password</a>
+    <div class="row justify-content-center">
+        <a href="forget-password.php">Forget Password</a>
+    </div>
 </div>
 
 <?php require 'includes/footer.php'; ?>

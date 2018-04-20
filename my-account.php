@@ -1,4 +1,7 @@
-<?php require 'includes/header.php'; ?>
+<?php
+require 'includes/header.php';
+protectPage();
+?>
 
 <div class="container">
     <div class="row form-group">

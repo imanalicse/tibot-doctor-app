@@ -1,4 +1,7 @@
-<?php require 'includes/header.php'; ?>
+<?php
+require 'includes/header.php';
+protectPage();
+?>
 
 <div class="container">
     <table class="table table-striped table-bordered table-hover2">
