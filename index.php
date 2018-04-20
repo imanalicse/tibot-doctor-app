@@ -9,7 +9,7 @@
         </div>
 
         <div class="row banner-container">
-            <img src="assets/img/banner1.jpg">
+            <img class="img-fluid img-thumbnail banner-image" src="assets/img/banner1.jpg">
         </div>
 
         <div class="row">
