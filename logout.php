@@ -1,7 +1,6 @@
-<?php require 'includes/header.php'; ?>
+<?php
+session_start();
+session_reset();
+session_destroy();
 
-<div class="container">
-   Logout
-</div>
-
-<?php require 'includes/footer.php'; ?>
+header('Location: index.php');

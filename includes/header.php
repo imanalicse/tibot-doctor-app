@@ -11,6 +11,8 @@
 </head>
 <body>
 
+<?php require "functions.php"; ?>
+
 <div class="container">
     <div class="header">
         <ul class="nav">

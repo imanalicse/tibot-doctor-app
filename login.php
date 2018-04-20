@@ -1,4 +1,6 @@
-<?php require 'includes/header.php';
+<?php
+session_start();
+require 'includes/header.php';
 
 function postRequest($url, $data, $refer = "", $timeout = 10, $header = [])
 {
@@ -52,24 +54,34 @@ $url =  "https://admin.tibot.ai/registeredDoctor/login";
 //print_r($postRes);
 //echo '</pre>';
 
-//
-//$ch = curl_init( $url );
-//# Setup request to send json via POST.
-////$payload = json_encode( array( "customer"=> $data ) );
-//curl_setopt( $ch, CURLOPT_POSTFIELDS, $data );
-//curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-//# Return response instead of printing.
-//curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-//// Get data from https url
-//curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-//# Send request.
-//$result = curl_exec($ch);
-//curl_close($ch);
-//# Print response.
-//echo "<pre>";
-//echo print_r($result);
-//echo "</pre>";
+if(!isset($_SESSION['token']) || empty($_SESSION['token'])) {
+    $ch = curl_init($url);
+# Setup request to send json via POST.
+//$payload = json_encode( array( "customer"=> $data ) );
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+# Return response instead of printing.
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// Get data from https url
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+# Send request.
+    $result = curl_exec($ch);
+    curl_close($ch);
 
+    echo "curl called";
+}
+
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
+
+if(!empty($result)) {
+    $resp = json_decode($result);
+    if($resp->message == 'Auth successful') {
+        $_SESSION['email'] = "imanali.cse@gmail.com";
+        $_SESSION['token'] = $resp->token;
+     }
+}
 
 ?>
 
