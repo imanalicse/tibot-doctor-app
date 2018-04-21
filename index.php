@@ -1,27 +1,31 @@
 <?php
 require 'includes/header.php';
 protectPage();
-
-$url = "https://admin.tibot.ai/caseDetail";
-$headers = array(
-        "email:" .$_SESSION["email"],
-        "token:" .$_SESSION["token"],
-        "Content-Type: application/json"
-);
-
-$curl = new Curl();
-$result = $curl->get($url, $headers);
-echo "<pre>";
-print_r($result);
-echo "</pre>";
-
 ?>
 
     <div class="container home-page">
+        <?php
+        $url = "https://admin.tibot.ai/caseDetail";
+        $headers = array(
+            "email:" . $_SESSION["email"],
+            "token:" . $_SESSION["token"],
+            "Content-Type: application/json"
+        );
+
+        $curl = new Curl();
+        $result = $curl->get($url, $headers);
+        $data = json_decode($result);
+
+        if(!empty($data)):
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+
+        ?>
         <div class="row">
             <div class="col-md-3">Case Id</div>
             <div class="col-md-3">
-                <input type="text" value="1234">
+                <input type="text" value="<?php echo $data->case_id; ?>">
             </div>
         </div>
 
@@ -30,6 +34,7 @@ echo "</pre>";
         </div>
 
         <div class="row">
+
             <div class="form-group col-md-6">
                 <div class="label-area">Patient's details</div>
                 <div class="field-area">
@@ -97,6 +102,8 @@ echo "</pre>";
                 <input type="text" class="form-control full-width">
             </div>
         </div>
+
+        <?php endif; ?>
 
         <form id="next-case">
             <div class="form-group row">
