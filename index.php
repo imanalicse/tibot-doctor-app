@@ -4,10 +4,11 @@ protectPage();
 
 $url = "https://admin.tibot.ai/caseDetail";
 $headers = array(
-        "email" => $_SESSION["email"],
-        "token" => $_SESSION["token"]
-        //"Content-Type"=> "application/json"
+        "email:" .$_SESSION["email"],
+        "token:" .$_SESSION["token"],
+        "Content-Type: application/json"
 );
+
 $curl = new Curl();
 $result = $curl->get($url, $headers);
 echo "<pre>";
