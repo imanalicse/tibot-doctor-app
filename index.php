@@ -5,7 +5,6 @@ protectPage();
 
     <div class="container home-page">
         <?php
-        $url = "https://admin.tibot.ai/caseDetail";
         $headers = array(
             "email:" . $_SESSION["email"],
             "token:" . $_SESSION["token"],
@@ -13,7 +12,7 @@ protectPage();
         );
 
         $curl = new Curl();
-        $result = $curl->get($url, $headers);
+        $result = $curl->get(APP_URL."/caseDetail", $headers);
         $data = json_decode($result);
 
         if(!empty($data)):

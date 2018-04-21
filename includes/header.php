@@ -7,6 +7,9 @@
 
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <?php
+        define("APP_URL", "https://admin.tibot.ai/");
+    ?>
     <title>Tibot Doctor App</title>
 </head>
 <body>

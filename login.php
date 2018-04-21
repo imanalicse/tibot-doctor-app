@@ -11,7 +11,7 @@ if (isset($_POST['username']) && !empty($_POST['username'])
         "password" => $password
     );
 
-    $url = "https://admin.tibot.ai/registeredDoctor/login";
+    $url = APP_URL . "/registeredDoctor/login";
     $curl = new Curl();
     $result = $curl->post($url, $postData);
 
@@ -26,7 +26,6 @@ if (isset($_POST['username']) && !empty($_POST['username'])
             $error_msg = $resp->message;
         }
     }
-
 }
 
 ?>
