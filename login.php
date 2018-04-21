@@ -21,7 +21,7 @@ if (isset($_POST['username']) && !empty($_POST['username'])
             $_SESSION['email'] = $user_name;
             $_SESSION['token'] = $resp->token;
             ob_start();
-            header('Location: index.php');
+            header('Location: index');
         } else {
             $error_msg = $resp->message;
         }

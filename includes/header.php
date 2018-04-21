@@ -26,16 +26,16 @@ if (isAuthenticated()) {
     <div class="header">
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link active" href="index.php">Home</a>
+                <a class="nav-link active" href="index">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="case-list.php">All cases</a>
+                <a class="nav-link" href="case-list">All cases</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="my-account.php">My Account</a>
+                <a class="nav-link" href="my-account">My Account</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="logout.php">Logout</a>
+                <a class="nav-link" href="logout">Logout</a>
             </li>
         </ul>
     </div>

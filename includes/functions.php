@@ -9,6 +9,6 @@ function isAuthenticated () {
 function protectPage() {
     if(!isAuthenticated()){
         ob_start();
-        header("location: login.php");
+        header("location: login");
     }
 }
