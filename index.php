@@ -12,6 +12,20 @@ protectPage();
         $result = $curl->get(APP_URL."/caseDetail");
         $data = json_decode($result);
 
+//        $curl = new Curl();
+//        $curl->setHeader("email", $_SESSION["email"]);
+//        $curl->setHeader("token", $_SESSION["token"]);
+        $result = $curl->get(APP_URL."/symptomNames");
+        $symptom_names = json_decode($result);
+        if(!empty($symptom_names)) {
+            $symptom_names = $symptom_names->message;
+        }else {
+            $symptom_names = array();
+        }
+
+        $_SESSION["symptom_names"] = $symptom_names;
+
+
         if(!empty($data)):
 
         ?>
@@ -98,13 +112,20 @@ protectPage();
 
         <?php endif; ?>
 
+        <hr>
+
         <form id="next-case" action="<?php echo $_SERVER['PHP_SELF']; ?>"  method="post">
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Main Condition</label>
                 <div class="col-sm-9">
                     <select name="mainCondition" class="form-control">
-                        <option value="Fungal_infection">Fungal infection</option>
-                        <option value="Fungal_infection_2">Fungal infection 2</option>
+                        <?php
+                            if(isset($_SESSION["symptom_names"]) && !empty($_SESSION["symptom_names"])) {
+                                foreach ($_SESSION["symptom_names"] as $symptom_name) {
+                                    echo "<option value='".$symptom_name->name."'>".$symptom_name->name."</option>";
+                                }
+                            }
+                        ?>
                     </select>
                 </div>
             </div>
@@ -112,8 +133,7 @@ protectPage();
                 <label class="col-sm-3 col-form-label">Secondary Condition</label>
                 <div class="col-sm-9">
                     <select name="secondaryCondition" class="form-control">
-                        <option value="Candidiasis">Candidiasis</option>
-                        <option value="Candidiasis_2">Candidiasis 2</option>
+
                     </select>
                 </div>
             </div>

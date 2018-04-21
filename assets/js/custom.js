@@ -2,8 +2,25 @@ jQuery(document).ready(function ($) {
 
     var pageBody = $("body");
 
-    const http = 'https://admin.tibot.ai/';
-    //const http = 'http://localhost:3000/';
+    $("select[name='mainCondition']").change(function (e) {
+        var symptom_name = $(this).val();
+       $.ajax({
+           method: "POST",
+           url : "http://localhost/tibot-doctor-app/sub_symtoms.php",
+           data: {
+               symptom_name: symptom_name
+           },
+           success: function (resp) {
+               var sub_symptoms = JSON.parse(resp);
+               var options = "";
+               sub_symptoms.forEach(function (item, i) {
+                   options += "<option value='" + item.subName +  "'>" + item.subName  + "</option>";
+               });
+               $("select[name='secondaryCondition']").html(options);
+           }
+       });
+    });
+    //const http = 'https://admin.tibot.ai/';
 
     // var loginForm = $("#login-form");
     // loginForm.submit(function (ev) {
