@@ -43,7 +43,7 @@ protectPage();
             <div class="form-group col-md-6">
                 <div class="label-area">Itch</div>
                 <div class="field-area">
-                    <input type="text" value="<?php echo $data->itch; ?>" class="form-control full-width fever" readonly>
+                    <input type="text" value="<?php echo isset($data->itch) ? $data->itch: ''; ?>" class="form-control full-width fever" readonly>
                 </div>
             </div>
             <div class="form-group col-md-6">
