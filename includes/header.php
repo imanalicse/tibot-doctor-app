@@ -24,7 +24,7 @@ if (isAuthenticated()) {
 
 <div class="container">
     <div class="header">
-        <ul class="nav">
+        <ul class="nav justify-content-end">
             <li class="nav-item">
                 <a class="nav-link active" href="index.php">Home</a>
             </li>

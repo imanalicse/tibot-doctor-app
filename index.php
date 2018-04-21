@@ -5,11 +5,6 @@ protectPage();
 
     <div class="container home-page">
         <?php
-//        $headers = array(
-//            "email:" . $_SESSION["email"],
-//            "token:" . $_SESSION["token"],
-//            "Content-Type: application/json"
-//        );
 
         $curl = new Curl();
         $curl->setHeader("email", $_SESSION["email"]);
@@ -20,14 +15,14 @@ protectPage();
         if(!empty($data)):
 
         ?>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-md-3">Case Id</div>
             <div class="col-md-3">
                 <input type="text" value="<?php echo $data->case_id; ?>" class="form-control" readonly>
             </div>
         </div>
 
-        <div class="row banner-container">
+        <div class="row banner-container justify-content-center">
             <img class="img-fluid img-thumbnail banner-image" src="assets/img/banner1.jpg">
         </div>
 
@@ -103,41 +98,38 @@ protectPage();
 
         <?php endif; ?>
 
-        <form id="next-case">
+        <form id="next-case" action="<?php echo $_SERVER['PHP_SELF']; ?>"  method="post">
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Main Condition</label>
                 <div class="col-sm-9">
-                    <select name="main_condition" class="form-control">
-                        <option selected>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
+                    <select name="mainCondition" class="form-control">
+                        <option value="Fungal_infection">Fungal infection</option>
+                        <option value="Fungal_infection_2">Fungal infection 2</option>
                     </select>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Secondary Condition</label>
                 <div class="col-sm-9">
-                    <select name="secondary_condition" class="form-control">
-                        <option selected>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
+                    <select name="secondaryCondition" class="form-control">
+                        <option value="Candidiasis">Candidiasis</option>
+                        <option value="Candidiasis_2">Candidiasis 2</option>
                     </select>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Severity</label>
                 <div class="col-sm-9">
-                    <select name="secondary_condition" class="form-control">
-                        <option selected>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
+                    <select name="severity" class="form-control">
+                        <option value="Grade_1">Grade 1</option>
+                        <option value="Grade_2">Grade 2</option>
                     </select>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Suggested Action</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control full-width">
+                    <input name="suggestedAction" type="text" class="form-control full-width">
                 </div>
             </div>
             <div class="form-group row">
