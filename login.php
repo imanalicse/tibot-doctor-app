@@ -36,11 +36,11 @@ if (isset($_POST['username']) && !empty($_POST['username'])
         <?php echo $error_msg; ?>
     </div>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id="login-form" method="post">
-        <div class="form-group">
-            <input type="text" name="username" class="form-control" placeholder="User Name">
+        <div class="form-group row col-md-12">
+            <input type="text" name="username" class="form-control full-width" placeholder="User Name">
         </div>
-        <div class="form-group">
-            <input type="password" name="password" class="form-control" placeholder="Password">
+        <div class="form-group row col-md-12">
+            <input type="password" name="password" class="form-control full-width" placeholder="Password">
         </div>
         <div class="form-group row justify-content-center">
             <button type="submit" class="btn btn-primary button-padding">Login</button>
