@@ -28,3 +28,9 @@ body {
 .login-container{
     width: 400px;
 }
+
+/*input[readonly]{*/
+    /*background-color:transparent;*/
+    /*border: 2px;*/
+    /*font-size: 1em;*/
+/*}*/

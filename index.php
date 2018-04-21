@@ -17,15 +17,12 @@ protectPage();
         $data = json_decode($result);
 
         if(!empty($data)):
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
 
         ?>
         <div class="row">
             <div class="col-md-3">Case Id</div>
             <div class="col-md-3">
-                <input type="text" value="<?php echo $data->case_id; ?>">
+                <input type="text" value="<?php echo $data->case_id; ?>" class="form-control" readonly>
             </div>
         </div>
 
@@ -38,68 +35,68 @@ protectPage();
             <div class="form-group col-md-6">
                 <div class="label-area">Patient's details</div>
                 <div class="field-area">
-                    <input type="text" class="form-control full-width">
+                    <input type="text" value="<?php echo $data->patient_details; ?>" class="form-control full-width" readonly>
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <div class="label-area">Fever</div>
                 <div class="field-area">
-                    <input type="text" class="form-control full-width">
+                    <input type="text" value="<?php echo $data->fever; ?>" class="form-control full-width" readonly>
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <div class="label-area">Itch</div>
                 <div class="field-area">
-                    <input type="text" class="form-control full-width fever">
+                    <input type="text" value="<?php echo $data->itch; ?>" class="form-control full-width fever" readonly>
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <div class="label-area">Oozing</div>
                 <div class="field-area">
-                    <input type="text" class="form-control full-width fever">
+                    <input type="text" value="<?php echo $data->oozing; ?>" class="form-control full-width fever" readonly>
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <div class="label-area">Duration</div>
                 <div class="field-area">
-                    <input type="text" class="form-control full-width fever">
+                    <input type="text" value="<?php echo $data->duration; ?>" class="form-control full-width fever" readonly>
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <div class="label-area">Burning</div>
                 <div class="field-area">
-                    <input type="text" class="form-control full-width fever">
+                    <input type="text" value="<?php echo $data->burn; ?>" class="form-control full-width fever" readonly>
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <div class="label-area">Location</div>
                 <div class="field-area">
-                    <input type="text" class="form-control full-width fever">
+                    <input type="text" value="<?php echo $data->location; ?>" class="form-control full-width fever" readonly>
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <div class="label-area">Trigger 1</div>
                 <div class="field-area">
-                    <input type="text" class="form-control full-width fever">
+                    <input type="text" value="<?php echo $data->trigger_1; ?>" class="form-control full-width fever" readonly>
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <div class="label-area">Pain</div>
                 <div class="field-area">
-                    <input type="text" class="form-control full-width fever">
+                    <input type="text" value="<?php echo $data->pain; ?>" class="form-control full-width fever" readonly>
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <div class="label-area">Trigger 2</div>
                 <div class="field-area">
-                    <input type="text" class="form-control full-width fever">
+                    <input type="text" value="<?php echo $data->trigger_2; ?>" class="form-control full-width fever" readonly>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-3 col-sm-3">Other Notes</div>
             <div class="form-group col-md-9 col-sm-9">
-                <input type="text" class="form-control full-width">
+                <input type="text" value="<?php echo $data->notes; ?>" class="form-control full-width" readonly>
             </div>
         </div>
 
