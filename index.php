@@ -1,6 +1,19 @@
 <?php
 require 'includes/header.php';
 protectPage();
+
+$url = "https://admin.tibot.ai/caseDetail";
+$headers = array(
+        "email" => $_SESSION["email"],
+        "token" => $_SESSION["token"]
+        //"Content-Type"=> "application/json"
+);
+$curl = new Curl();
+$result = $curl->get($url, $headers);
+echo "<pre>";
+print_r($result);
+echo "</pre>";
+
 ?>
 
     <div class="container home-page">

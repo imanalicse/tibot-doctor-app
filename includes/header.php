@@ -14,6 +14,7 @@
 <?php
 session_start();
 require "functions.php";
+require 'curl.php';
 
 if (isAuthenticated()) {
 ?>

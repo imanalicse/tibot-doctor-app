@@ -11,21 +11,24 @@ if (isset($_POST['username']) && !empty($_POST['username'])
         "email" => $user_name,
         "password" => $password
     );
-    $data = json_encode($postData);
+    //$data = json_encode($postData);
 
     $url = "https://admin.tibot.ai/registeredDoctor/login";
-    $ch = curl_init($url);
-# Setup request to send json via POST.
-//$payload = json_encode( array( "customer"=> $data ) );
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-# Return response instead of printing.
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// Get data from https url
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-# Send request.
-    $result = curl_exec($ch);
-    curl_close($ch);
+//    $ch = curl_init($url);
+//# Setup request to send json via POST.
+////$payload = json_encode( array( "customer"=> $data ) );
+//    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+//    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+//# Return response instead of printing.
+//    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//// Get data from https url
+//    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+//# Send request.
+//    $result = curl_exec($ch);
+//    curl_close($ch);
+
+    $curl = new Curl();
+    $result = $curl->post($url, $postData);
 
     if (!empty($result)) {
         $resp = json_decode($result);
@@ -37,7 +40,11 @@ if (isset($_POST['username']) && !empty($_POST['username'])
         } else {
             echo $resp->message;
         }
+        echo "<pre>";
+        print_r($result);
+        echo "</pre>";
     }
+
 }
 
 ?>
