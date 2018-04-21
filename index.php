@@ -5,14 +5,16 @@ protectPage();
 
     <div class="container home-page">
         <?php
-        $headers = array(
-            "email:" . $_SESSION["email"],
-            "token:" . $_SESSION["token"],
-            "Content-Type: application/json"
-        );
+//        $headers = array(
+//            "email:" . $_SESSION["email"],
+//            "token:" . $_SESSION["token"],
+//            "Content-Type: application/json"
+//        );
 
         $curl = new Curl();
-        $result = $curl->get(APP_URL."/caseDetail", $headers);
+        $curl->setHeader("email", $_SESSION["email"]);
+        $curl->setHeader("token", $_SESSION["token"]);
+        $result = $curl->get(APP_URL."/caseDetail");
         $data = json_decode($result);
 
         if(!empty($data)):
