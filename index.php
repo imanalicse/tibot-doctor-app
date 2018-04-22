@@ -5,6 +5,8 @@ protectPage();
 
     <div class="container home-page">
         <?php
+        // message
+        $case_updated_message = '';
 
         $curl = new Curl();
         $curl->setHeader("email", $_SESSION["email"]);
@@ -12,9 +14,6 @@ protectPage();
         $result = $curl->get(APP_URL."/caseDetail");
         $data = json_decode($result);
 
-//        $curl = new Curl();
-//        $curl->setHeader("email", $_SESSION["email"]);
-//        $curl->setHeader("token", $_SESSION["token"]);
         $result = $curl->get(APP_URL."/symptomNames");
         $symptom_names = json_decode($result);
         if(!empty($symptom_names)) {
@@ -32,7 +31,6 @@ protectPage();
             $severity = $_POST['severity'];
             $suggestedAction = $_POST['suggestedAction'];
 
-
             $postData = array(
                 "email" => $_SESSION["email"],
                 "token" => $_SESSION["token"],
@@ -48,9 +46,10 @@ protectPage();
             $curl->setHeader("email", $_SESSION["email"]);
             $curl->setHeader("token", $_SESSION["token"]);
             $post_result = $curl->post(APP_URL."/caseDetail", $postData);
-//            echo "<pre>";
-//            print_r($post_result);
-//            echo "</pre>";
+            if($post_result) {
+                $post_result = json_decode($post_result);
+                $case_updated_message = $post_result->message;
+            }
         }
 
 
@@ -141,6 +140,16 @@ protectPage();
         <?php endif; ?>
 
         <hr>
+
+        <?php
+            if($case_updated_message) {
+                ?>
+                <div class="row justify-content-center">
+                    <?php echo $case_updated_message; ?>
+                </div>
+                <?php
+            }
+        ?>
 
         <form id="next-case" action="<?php echo $_SERVER['PHP_SELF']; ?>"  method="post">
             <div class="form-group row">
