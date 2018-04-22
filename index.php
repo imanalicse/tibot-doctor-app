@@ -27,7 +27,7 @@ protectPage();
         // form submitted action
         if (isset($_POST['mainCondition']) && !empty($_POST['mainCondition'])) {
             $mainCondition = $_POST['mainCondition'];
-            $secondaryCondition = $_POST['secondaryCondition'];
+            $secondaryCondition = isset($_POST['secondaryCondition']) ? $_POST['secondaryCondition'] : '';
             $severity = $_POST['severity'];
             $suggestedAction = $_POST['suggestedAction'];
 
@@ -126,7 +126,7 @@ protectPage();
             <div class="form-group col-md-6">
                 <div class="label-area">Trigger 2</div>
                 <div class="field-area">
-                    <input type="text" value="<?php echo $data->trigger_2; ?>" class="form-control full-width fever" readonly>
+                    <input type="text" value="<?php echo isset($data->trigger_2) ? $data->trigger_2 : '' ; ?>" class="form-control full-width fever" readonly>
                 </div>
             </div>
         </div>
@@ -144,7 +144,7 @@ protectPage();
         <?php
             if($case_updated_message) {
                 ?>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center alert alert-success">
                     <?php echo $case_updated_message; ?>
                 </div>
                 <?php
@@ -193,11 +193,10 @@ protectPage();
                 <label class="col-sm-0 col-sm-3 col-form-label"></label>
                 <div class="col-sm-12 col-md-9">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-primary">Skip</button>
+                    <a href="index" class="btn btn-primary">Skip</a>
                 </div>
             </div>
         </form>
     </div>
-
 
 <?php require 'includes/footer.php'; ?>
