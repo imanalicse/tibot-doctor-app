@@ -25,6 +25,34 @@ protectPage();
 
         $_SESSION["symptom_names"] = $symptom_names;
 
+        // form submitted action
+        if (isset($_POST['mainCondition']) && !empty($_POST['mainCondition'])) {
+            $mainCondition = $_POST['mainCondition'];
+            $secondaryCondition = $_POST['secondaryCondition'];
+            $severity = $_POST['severity'];
+            $suggestedAction = $_POST['suggestedAction'];
+
+
+            $postData = array(
+                "email" => $_SESSION["email"],
+                "token" => $_SESSION["token"],
+                "caseId" => $data->case_id,
+                "mainCondition" => $mainCondition,
+                "secondaryCondition" => $secondaryCondition,
+                "severity" => $severity,
+                "severity" => $severity,
+                "suggestedAction" => $suggestedAction,
+            );
+
+            $curl = new Curl();
+            $curl->setHeader("email", $_SESSION["email"]);
+            $curl->setHeader("token", $_SESSION["token"]);
+            $post_result = $curl->post(APP_URL."/caseDetail", $postData);
+//            echo "<pre>";
+//            print_r($post_result);
+//            echo "</pre>";
+        }
+
 
         if(!empty($data)):
 
