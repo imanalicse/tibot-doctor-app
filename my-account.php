@@ -47,7 +47,7 @@ for ($i = $start_year; $i > $start_year - 10; $i--) {
     <div class="row form-group">
         <div class="col-md-3">Doctor Name</div>
         <div class="col-md-9">
-            <input type="text" value="Dr. XYZ" class="full-width">
+            <input type="text" value="<?php echo getEmail(); ?>" class="form-control full-width" readonly>
         </div>
     </div>
     <form action="my-account" method="post">

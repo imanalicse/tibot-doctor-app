@@ -7,7 +7,7 @@ if(!is_admin()) {
 }
 
 if(isset($_SESSION['symptom_names'])) { unset($_SESSION['symptom_names']); }
-echo is_admin();
+
 ?>
 
 <div class="container">
