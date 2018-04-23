@@ -13,6 +13,9 @@ protectPage();
         $curl->setHeader("token", $_SESSION["token"]);
         $result = $curl->get(APP_URL."/caseDetail");
         $data = json_decode($result);
+//        echo "<pre>";
+//        print_r($data);
+//        echo "</pre>";
 
         $result = $curl->get(APP_URL."/symptomNames");
         $symptom_names = json_decode($result);
@@ -53,7 +56,7 @@ protectPage();
         }
 
 
-        if(!empty($data)):
+        if(!empty($data) && $data->message != "No more cases to evaluate"):
 
         ?>
         <div class="row form-group">
