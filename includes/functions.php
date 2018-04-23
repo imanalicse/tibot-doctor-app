@@ -1,7 +1,22 @@
 <?php
+function getEmail() {
+    if(isset($_SESSION["email"])) {
+        return $_SESSION["email"];
+    }else {
+        return false;
+    }
+}
+function getToken() {
+    if(isset($_SESSION["token"])) {
+        return $_SESSION["token"];
+    }else {
+        return false;
+    }
+}
+
 function isAuthenticated () {
     $isAuthenticated = false;
-    if(isset($_SESSION['token']) && !empty($_SESSION['token'])) {
+    if(getToken()) {
         $isAuthenticated =  true;
     }
     return $isAuthenticated;
