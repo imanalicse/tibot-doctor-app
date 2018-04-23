@@ -1,9 +1,13 @@
 <?php
 require 'includes/header.php';
 protectPage();
+if(!is_admin()) {
+    ob_start();
+    header("location:index");
+}
 
 if(isset($_SESSION['symptom_names'])) { unset($_SESSION['symptom_names']); }
-
+echo is_admin();
 ?>
 
 <div class="container">

@@ -20,6 +20,7 @@ if (isset($_POST['username']) && !empty($_POST['username'])
         if ($resp->message == 'Auth successful') {
             $_SESSION['email'] = $user_name;
             $_SESSION['token'] = $resp->token;
+            $_SESSION['is_admin'] = $resp->is_admin;
             ob_start();
             header('Location: index');
         } else {

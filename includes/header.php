@@ -28,9 +28,11 @@ if (isAuthenticated()) {
             <li class="nav-item">
                 <a class="nav-link active" href="index">Home</a>
             </li>
+            <?php if(is_admin()) { ?>
             <li class="nav-item">
                 <a class="nav-link" href="case-list">All cases</a>
             </li>
+            <?php } ?>
             <li class="nav-item">
                 <a class="nav-link" href="my-account">My Account</a>
             </li>

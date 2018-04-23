@@ -12,3 +12,12 @@ function protectPage() {
         header("location: login");
     }
 }
+
+function is_admin() {
+    return true;
+    if(isset($_SESSION["is_admin"])) {
+        return $_SESSION["is_admin"];
+    }else{
+        return false;
+    }
+}
