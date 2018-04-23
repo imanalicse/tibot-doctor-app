@@ -1,6 +1,9 @@
 <?php
 require 'includes/header.php';
 protectPage();
+
+if(isset($_SESSION['symptom_names'])) { unset($_SESSION['symptom_names']); }
+
 ?>
 
 <div class="container">
